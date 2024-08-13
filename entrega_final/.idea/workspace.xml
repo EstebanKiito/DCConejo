@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4ade6c8a-20d6-47a2-a954-6be64bd45f63" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/cliente/backend/logica.py" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/backend/logica.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/frontend/ventana_juego.py" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/frontend/ventana_juego.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servidor/puntajes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/servidor/puntajes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servidor/servidor.py" beforeDir="false" afterPath="$PROJECT_DIR$/servidor/servidor.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Xu1VMNqTvpsmL3FyPkFlqSa9qU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/esteban_pro177/Desktop/UC/Semestre-2/AVANZADA/Esteban-pRo177-iic2233-2023-2/Tareas/T2/entrega_final"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ade6c8a-20d6-47a2-a954-6be64bd45f63" name="Changes" comment="" />
+      <created>1699464173772</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699464173772</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
