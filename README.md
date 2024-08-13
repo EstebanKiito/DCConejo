@@ -1,149 +1,143 @@
 # Tarea 2: DCConejoChico 🐇💨
 
-Hola querid@ Ayudante, espero que tratar de corregir mi Tarea 2 sea un trabajo ameno, trate de comentar donde fuera necesario en mi codigo, separe mi codigo en funciones y en archivos externos para las rutas de imagenes. 
-Espero tenga un buen tiempo corregiendo mi tarea, muchas gracias y disfrute de mi DCConejoChico 🐰.
+¡Hola, querid@ lector! Espero que disfrutes de mi Tarea 2. He comentado mi código donde fue necesario y lo he organizado en funciones y archivos externos para las rutas de imágenes. ¡Muchas gracias y disfruta de mi DCConejoChico 🐰! Espero que esto sirva como método de estudio. No me considero un gran programador, pero he puesto mucho esfuerzo en esta tarea y creo que puede ser útil para alguien que esté trabajando con PyQt, ¡que me encantó!
 
-## Consideraciones generales :octocat:
+## Consideraciones Generales :octocat:
 
-1. Consideracion muy importante!: Quizas en otros computadores no pase, pero en mi Mac, al enviar un mensaje al usuario de tipo QMessageBox, este sale de la pantalla, por lo que no se puede mover a ConejoChico de inmediato, hay que pulsar adentro de la pantalla de juego, para poder volver a mover al jugador
+1. **Consideración muy importante:** En mi Mac, al enviar un mensaje al usuario con `QMessageBox`, este aparece fuera de la pantalla. Por lo tanto, debes pulsar dentro de la pantalla del juego para poder mover al jugador de nuevo.
 
-2. Conejo al morir, no aparece instantaneamente en la entrada dado el mensaje, por lo que una vez que se muera hay que pulsar alguna tecla ("WASD") para volver a la entrada y seguir jugando
+2. Cuando el conejo muere, no aparece instantáneamente en la entrada. Después de morir, hay que pulsar alguna tecla ("WASD") para volver a la entrada y continuar jugando.
 
-3. No logre implementar las bombas, por lo que no puedo matar a los lobos sin otra forma que no sea "kil" como cheatcode, para efectos de que el ranking funcione, usar el comando "inf" como cheatcode para sumar puntaje y ver
+3. Las funciones de movimiento están basadas en **QTimers** que actualizan la posición cada cierto tiempo. El frontend solo tiene los `QLabels` con las imágenes, junto con un método para mover y actualizar el sprite para las animaciones. Las rutas están en otro archivo llamado `rutas.py`, donde tengo una clase con atributos para las rutas.
 
-4. Mis funciones mover, son qtimers que solo van actualizando la posicion cada cierto tiempo, el frontend solo tiene los Qlabels con las imagenes, con un metodo para ir moviendo y a la vez, actualizando el sprite para realizar las animaciones del movimiento, las rutas estan en otro archivo, llamado rutas.py, ahi tengo una clase con atributos donde van las rutas
+4. Los usuarios inválidos se gestionan mediante una lista en la clase `Backend`, a la que puedes añadir usuarios inválidos.
 
-5. Usuarios invalidos es simplemente un atributo de instancia de la clase Backend, hecho de una lista, pueden añadirse ahi los usuarios invalidos
+5. Suponemos que siempre los mapas son de 16x16 y que el nivel 3 es el final. El programa se cierra enviando un mensaje de felicitaciones al nivel 3.
 
-6. Estoy suponiendo que siempre los mapas son de 16 x 16 y que ademas el nivel 3 es el final, dado que cierro el programa mandando un mensaje de felicitaciones al nivel 3.
+6. El conejo colisionará con los cañones.
 
-7. Considere que el conejo con colisionara con los cañones.
-
-
-## Cosas implementadas y no implementadas :white_check_mark: :x:
+## Cosas Implementadas y No Implementadas :white_check_mark: :x:
 
 ### Entrega Final: 46 pts (75%)
+
 ##### ✅ Ventana Inicio
-- Ventana Inicio funciona perfectamente, se espera que se ingrese correctamente un usuario o Nuevo, o con alguna Partida guardada.
+- La ventana de inicio funciona perfectamente, permitiendo ingresar un usuario nuevo o cargar una partida guardada.
 
 ##### ✅ Ventana Juego
-- Ventana Juego funciona perfectamente, tiene el inventario, actualizacion en tiempo real de las vidas, el tiempo, y el puntaje del jugador, ademas de un titulo (en la ventana) del jugador y el nivel que esta jugando
+- La ventana de juego funciona perfectamente, mostrando el inventario, actualizaciones en tiempo real de las vidas, el tiempo y el puntaje del jugador, además de un título con el nombre del jugador y el nivel en juego.
 
 ##### ✅ ConejoChico:
-- ConejoChico: Puede moverse perfectamente, colisiona con los enemigos y los bloques, funciona con un Qtimer que lo mueve cada vez que se pulsa una tecla, tiene un solo problema y es que al pasar de nivel queda la imagen seteada en la entrada, no implemente el cambio de velocidades entre niveles
-En la Logica del juego
+- **ConejoChico**: Se mueve perfectamente, colisiona con los enemigos y bloques, y funciona con un `QTimer` que actualiza la posición con cada tecla pulsada. Sin embargo, al pasar de nivel, la imagen queda fijada en la entrada. No se implementó el cambio de velocidades entre niveles.
 
 ##### ✅ Lobos:
-- Lobos: Pueden moverse perfectamente, tanto vertical como horizontalmente.Colisionan con los bloques, funciona con un Qtimer que lo mueve siempre, una vez parta el juego, pueden eliminarse con "kil" y pausarse con "p".
+- **Lobos**: Se mueven perfectamente tanto vertical como horizontalmente, colisionan con los bloques, y se mueven con un `QTimer`. Pueden eliminarse con "kil" y pausarse con "p".
 
 ##### ✅ Cañón de Zanahorias
-- Cañon Zanahorias: Funcionan a la perfeccion, no lo considere como una pared, por lo que conejo no colisionara contra ellos, pero si puede morir al estar encima de uno, ya que las zanahorias salen desde ahi
+- **Cañón Zanahorias**: Funcionan a la perfección. No se considera como una pared, por lo que el conejo no colisionará contra ellos, pero puede morir si está sobre uno, ya que las zanahorias salen de allí.
 
-##### ❌ Bomba Manzana
-##### ❌ Bomba Congeladora
-
-##### ✅ Fin del nivel
-- Para ello hago un mensaje al usuario de tipo QmessageBox interactivo
+##### ✅ Fin del Nivel
+- Se muestra un mensaje al usuario usando un `QMessageBox` interactivo.
 
 ##### ✅ Fin del Juego
-- Para ello hago un mensaje al usuario de tipo QmessageBox interactivo
-- Cierra la partida, avisa al servidor de desconexion
-
-##### ❌ Recoger (G)
+- Se muestra un mensaje al usuario usando un `QMessageBox` interactivo.
+- Cierra la partida y avisa al servidor de desconexión.
 
 ##### ✅ Cheatcodes (Pausa, K+I+L, I+N+F)
-- Estan bien aplicados, puedes comprobar instantaneamente la suma de puntaje - para "inf", el conejo y las entidades dejan de moverse al estar en pausa (p) y para kil, todas las entidades que no sean bombas desaparecen, los cañones simplemente dejan de disparar zanahorias
+- Los cheatcodes están bien implementados. Puedes comprobar instantáneamente la suma de puntaje. "inf" permite pausar el juego (el conejo y las entidades dejan de moverse), "kil" hace que todas las entidades que no sean bombas desaparezcan, y los cañones dejan de disparar zanahorias.
 
 ##### ✅ Networking
-- Hice una buena conexion entre servidor y cliente, se envian mensajes siempre que se ingrese un usuario o se abra el juego, o cuando el jugador pase de nivel, o termine el juego.
+- Se realiza una buena conexión entre el servidor y el cliente, enviando mensajes cuando se ingresa un usuario, se abre el juego, se pasa de nivel o se termina el juego.
 
 ##### ✅ Decodificación y ✅ Desencriptación
-Implemente correctamente los metodos, se pueden enviar y recibir mensajes de manera correcta entre servidor y cliente, los mensajes llegan a salvo con estas tecnicas
+- Los métodos de decodificación y desencriptación están correctamente implementados, permitiendo enviar y recibir mensajes entre servidor y cliente de manera segura.
 
 ##### ✅ Funciones
-Reutlizo algunas funciones de cliente y servidor, no todas, porque no haye funcionalidad para mi juego en todas, pero si reutilizo algunas, para ello, tengo el modulo funciones_cliente o funciones_servidor para recurrir a ellas
+- Se reutilizan algunas funciones de cliente y servidor, no todas, porque no encontré funcionalidad para mi juego en todas. Sin embargo, reutilizo algunas a través del módulo `funciones_cliente` o `funciones_servidor`.
 
 ##### ✅ Archivos
-- Archivo Puntajes.txt es actualizado y leido de manera correcta por el servidor, siempre que el cliente quiera acceder a la info dentro de el
+- El archivo `Puntajes.txt` es actualizado y leído correctamente por el servidor, siempre que el cliente quiera acceder a la información dentro de él.
 
+---
 
 ## Ejecución :computer:
-El archivo principal de la tarea a ejecutar es  ```main.py``` el cual se encuentra dentro de la carpeta entrega_final/cliente
-Ademas de correr el ```servidor.py``` que se encuentra en entrega_final/cliente
+
+El archivo principal de la tarea es `main.py`, que se encuentra dentro de la carpeta `entrega_final/cliente`. También debes ejecutar `servidor.py`, que se encuentra en `entrega_final/cliente`.
 
 ### Archivos del Servidor:
-1. ```funciones_extras.py``` en ```servidor```
-2. ```funciones_servidor.py``` en ```servidor```
-3. ```puntajes.txt``` en ```servidor```
-4. ```host_servidor.json``` en ```servidor```
+1. `funciones_extras.py` en `servidor`
+2. `funciones_servidor.py` en `servidor`
+3. `puntajes.txt` en `servidor`
+4. `host_servidor.json` en `servidor`
 
 ### Archivos del Cliente:
-1. ```main.py``` -> Ejecuta tanto el backend como el frontend, y comienza la conexion con el servidor
-2. ```host_cliente.json``` -> contiene el host de la comunicacion con el server
+1. `main.py` -> Ejecuta tanto el backend como el frontend, y comienza la conexión con el servidor.
+2. `host_cliente.json` -> Contiene el host de la comunicación con el servidor.
 
-### En ```cliente/frontend``` se encuentran:
-1. ```ventana.py``` -> Contiene la Ventana Inicio
-2. ```ventana_juego.py``` -> Cont la Ventana Juego
-3. ```rutas.py```  -> Contiene una clase, con un atributo que contiene las rutas de los sprites, con el fin de separar las rutas de la misma ventana del juego
+### En `cliente/frontend` se encuentran:
+1. `ventana.py` -> Contiene la Ventana Inicio.
+2. `ventana_juego.py` -> Contiene la Ventana Juego.
+3. `rutas.py` -> Contiene una clase con atributos para las rutas de los sprites, separando las rutas de la ventana del juego.
 
-### En ```cliente/backend``` se encuentran:
-1. ```logica.py``` -> Contiene 2 clases:
-    a. Backend -> Es la encargada de contactar al servidor
-    b. LogicaJuego -> la encargada de manejar toda la logica detras del juego
-
-2. ```funciones_extras.py``` 
-3. ```funciones_cliente.py```
-4. ```parametros.py```
-5. ```clases.py``` -> Contiene 2 clases:
-    a. Conejo -> Es la encargada de modelar el movimiento del conejo (QTimer)
-    b. EntidadNpc -> Es la encargada de modelar el movimientos de los npc del juego, como lo son los lobos y los cañones de zanahorias
-
+### En `cliente/backend` se encuentran:
+1. `logica.py` -> Contiene 2 clases:
+    a. `Backend` -> Encargada de contactar al servidor.
+    b. `LogicaJuego` -> Encargada de manejar toda la lógica del juego.
+2. `funciones_extras.py`
+3. `funciones_cliente.py`
+4. `parametros.py`
+5. `clases.py` -> Contiene 2 clases:
+    a. `Conejo` -> Modela el movimiento del conejo (con `QTimer`).
+    b. `EntidadNpc` -> Modela el movimiento de los NPC del juego, como lobos y cañones de zanahorias.
 
 ## Librerías :books:
-### Librerías externas utilizadas
-No utilice librerias externas mas que las necesarias para ejecutar la Gui con PyQt6
 
+### Librerías Externas Utilizadas
+No se utilizaron librerías externas más allá de las necesarias para ejecutar la GUI con PyQt6.
 
-## Consideraciones adicionales :thinking:
+## Consideraciones Adicionales :thinking:
 
 ### 1. 
-Para enviarme mensajes entre cliente y servidor, mi protocolo es siempre 1. Mandar un mensaje con la operacion, dada la forma en que hice mis funciones de decodificar y desencriptar, tengo que mandar varios numeros por ej : "11111111" o "22222222" Lo hago con el fin de mandarle al servidor una operacion, un 1 un 2 o un 3, cada una representa una operacion como pedir ranking, ingresar usuario, reescribirlo, o simplemente salir (que seria con un 0)
+Para enviar mensajes entre cliente y servidor, mi protocolo siempre manda un mensaje con una operación. Dado el formato de mis funciones de decodificación y desencriptación, se envían varios números como "11111111" o "22222222", donde cada número representa una operación específica, como pedir ranking, ingresar un usuario, reescribirlo o salir (con "0").
 
-### 2. Para el siguiente codigo (ventana_juego.py) que puede verse complejo , intentare explicar que hago:
+### 2. 
+Para el siguiente código en `ventana_juego.py`, que puede parecer complejo, aquí te explico lo que hace:
 
 ```python
 def colocar_entidad(self, entidad: str, posicion_inicial: tuple, id: int):
-        """---Este metodo rellena el mapa con los assets principales de las Entidades del juego---"""
-        rutas = Rutas()
-        rutas_entidades = rutas.rutas_sprites["rutas_entidades"]
-        rutas_zanahorias = rutas.rutas_sprites["rutas_zanahorias"]
-        entidad_img = QLabel(entidad, self)
-        ruta = rutas_entidades[entidad]
+    """---Este método coloca las entidades del juego en el mapa---"""
+    rutas = Rutas()
+    rutas_entidades = rutas.rutas_sprites["rutas_entidades"]
+    rutas_zanahorias = rutas.rutas_sprites["rutas_zanahorias"]
+    entidad_img = QLabel(entidad, self)
+    ruta = rutas_entidades[entidad]
+    pixeles = QPixmap(ruta)
+    self.setear_imagen(entidad_img, pixeles)
+    x, y = posicion_inicial
+    if y < 10:
+        entidad_img.move(310 + (40 * x), 20 + (40 * y))
+    else:
+        entidad_img.move(310 + (40 * x), 10 + (40 * y))
+    self.entidades[id] = [entidad_img, entidad]
+    entidad_img.show()
+    
+    # --- Para zanahorias: cambio la imagen del cañón por la zanahoria ---
+    if entidad in ["CU", "CD", "CR", "CL"]:
+        zanahoria_img = QLabel(entidad, self)
+        ruta = rutas_zanahorias[entidad]
         pixeles = QPixmap(ruta)
-        self.setear_imagen(entidad_img, pixeles)
+        self.setear_imagen(zanahoria_img, pixeles)
+        self.entidades[id][0] = zanahoria_img
         x, y = posicion_inicial
         if y < 10:
-            entidad_img.move( 310 + (40 * x) , 20 + (40 * y) )
+            zanahoria_img.move(310 + 40 * x, 20 + 40 * y)
         else:
-            entidad_img.move( 310 + (40 * x) , 10 + (40 * y) )
-        self.entidades[id] = [entidad_img,entidad]
-        entidad_img.show()
-        # --- Para zanahorias : cambio la imagen del cañon por la zanahoria ----
-        if entidad in ["CU","CD","CR","CL"]:
-            zanahoria_img = QLabel(entidad, self)
-            ruta = rutas_zanahorias[entidad]
-            pixeles = QPixmap(ruta)
-            self.setear_imagen(zanahoria_img, pixeles)
-            self.entidades[id][0] = zanahoria_img
-            x, y = posicion_inicial
-            if y < 10:
-                zanahoria_img.move( 310 + 40*x , 20 + 40*y )
-            else:
-                zanahoria_img.move( 310 + 40*x , 10 + 40*y )
-            zanahoria_img.show()
-        # --- Emitir señal para empezar a mover a los NPC en el mapa ---
-        self.senal_empezar_a_mover.emit(id)
+            zanahoria_img.move(310 + 40 * x, 10 + 40 * y)
+        zanahoria_img.show()
+    
+    # --- Emitir señal para empezar a mover a los NPC en el mapa ---
+    self.senal_empezar_a_mover.emit(id)
 ```
+
 Basicamente voy desde el backend (LogicaJuego) leyendo entidad por entidad en el mapa, le asigno un id, y la mando por señales a este metodo, el cual comprueba si es cañon o cualquier otra, esto lo hago porque mi diccionario self.entidades tiene adentro cada llave con una lista con el label y el nombre, entonces cuando es un cañon, quiero reemplazarle el sprite por el de una zanahoria, asi posteriormente, cuando se active el timer de mover, no estaré moviendo el cañon, si no la zanahoria.
 
 ### 3. Movimiento de las piezas:
